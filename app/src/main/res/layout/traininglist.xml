@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:background="#B85252"
+        android:backgroundTint="#159947"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center|left"
+        android:paddingLeft="10dp"
+        android:text="Training"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:clipToOutline="true"
+        />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTraining"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
