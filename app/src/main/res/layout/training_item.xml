@@ -28,4 +28,5 @@
         android:height="33dp"
         android:paddingLeft="10dp"
         android:text="kcal per Minute" />
+
 </RelativeLayout>

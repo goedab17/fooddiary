@@ -10,15 +10,14 @@
         android:layout_height="73dp"
         android:background="#B85252"
         android:backgroundTint="#159947"
+        android:clipToOutline="true"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center|left"
         android:paddingLeft="10dp"
-        android:text="Training"
+        android:text="Food"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:clipToOutline="true"
-        />
+        android:textStyle="bold" />
 
     <SearchView
         android:id="@+id/svFood"

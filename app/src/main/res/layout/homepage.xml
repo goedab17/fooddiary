@@ -5,154 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TableLayout
-        android:id="@+id/tb1"
-        android:layout_width="361dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="16dp"
-        android:background="#C38B8B"
-        android:backgroundTint="#EAF8EA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lablelKcal">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvBreakfast"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="2"
-                android:text="Breakfast"
-                android:textSize="24dp" />
-
-            <Button
-                android:id="@+id/bt1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="+"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="336dp"
-                android:layout_height="30dp"
-                android:text="Mahlzeit 1, Mahlzeit2"
-                android:textSize="16sp" />
-        </TableRow>
-
-    </TableLayout>
-
-    <TextView
-        android:id="@+id/lablelKcal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="132dp"
-        android:text="kcal/day"
-        android:textSize="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/tvKcal"
         android:layout_width="81dp"
         android:layout_height="32dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="162dp"
+        android:layout_marginEnd="81dp"
         android:gravity="center"
         android:textSize="25dp"
-        app:layout_constraintEnd_toStartOf="@+id/lablelKcal"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toStartOf="@id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
         android:text="Your Daily Allowed intake is"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TableLayout
-        android:id="@+id/tb2"
-        android:layout_width="361dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
-        android:background="#9E8282"
-        android:backgroundTint="#EAF8EA"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb1">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvLunch"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_weight="2"
-                android:text="Lunch"
-                android:textSize="24dp" />
-
-            <Button
-                android:id="@+id/bt2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:text="+"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_width="336dp"
-                android:layout_height="30dp"
-                android:text="Mahlzeit 1, Mahlzeit2"
-                android:textSize="16sp" />
-        </TableRow>
-    </TableLayout>
-
-    <TableLayout
         android:id="@+id/tb3"
         android:layout_width="361dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
         android:background="#4C2929"
         android:backgroundTint="#EAF8EA"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tb2">
+        app:layout_constraintTop_toBottomOf="@+id/progressBar">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvDinner"
+                android:id="@+id/tvFood"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:layout_weight="2"
-                android:text="Dinner"
+                android:text="Food"
                 android:textSize="24dp" />
 
             <Button
@@ -181,8 +77,8 @@
     <TableLayout
         android:id="@+id/tb4"
         android:layout_width="361dp"
-        android:layout_height="93dp"
-        android:layout_marginStart="25dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="23dp"
         android:layout_marginTop="15dp"
         android:background="#4C2929"
         android:backgroundTint="#EAF8EA"
@@ -205,6 +101,7 @@
                 android:id="@+id/bt4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:onClick="onClickTrainingNew"
                 android:text="+"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -218,10 +115,61 @@
                 android:id="@+id/tv4"
                 android:layout_width="336dp"
                 android:layout_height="30dp"
-                android:text="Mahlzeit 1, Mahlzeit2"
+                android:text="Training1, Training2"
                 android:textSize="16sp" />
         </TableRow>
 
     </TableLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="250dp"
+        android:layout_height="245dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="81dp"
+        android:indeterminate="false"
+        android:indeterminateOnly="false"
+        android:max="1890"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_progress"
+        android:rotation="270"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="180dp"
+        android:text="kcal left"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvKcal" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvFeedback"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="31dp"
+        android:background="#E4B7B7"
+        android:backgroundTint="#EAF8EA"
+        android:fontFamily="sans-serif"
+        android:gravity="center|left"
+        android:text="You are doing great you are right on Track! :D"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

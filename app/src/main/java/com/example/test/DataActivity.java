@@ -4,13 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.test.filter.InputFilterMinMax;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class DataActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.data_input);
         etAge=findViewById(R.id.Input_Age);
         wishWeight=findViewById(R.id.Input_Zielgewicht);
