@@ -1,6 +1,8 @@
 package com.example.test;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -18,6 +20,8 @@ public class CalculatedActivity extends AppCompatActivity {
     private ProgressBar pb;
     private int kcalday = 0;
     private int summ=0;
+    private TextView tvKcalOverUnder;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,8 @@ public class CalculatedActivity extends AppCompatActivity {
         tvKcal = findViewById(R.id.tvKcal);
         pb = findViewById(R.id.progressBar);
         tvFeedback = findViewById(R.id.tvFeedback);
+        tvKcalOverUnder = findViewById(R.id.tvKcalOverUnder);
+        tvFeedback.setBackgroundColor(Color.parseColor("#EAF8EA"));
 
         Intent intent = getIntent();
         int age = intent.getIntExtra("age", 0);
@@ -42,6 +48,7 @@ public class CalculatedActivity extends AppCompatActivity {
         } else if (gender.equals("female")) {
             //   Frauen: GU (kcal/Tag) = 655 + (9,5 x Gewicht in kg) + (1,9 x Größe in cm) – (4,7 x Alter in Jahren)
             kcalday = (int) (655 + (9.5 * currentweight) + (1.9 * height) - (4.7 * age));
+
         }
         tvKcal.setText(kcalday + "");
         pb.setMax(kcalday);
@@ -52,6 +59,11 @@ public class CalculatedActivity extends AppCompatActivity {
     {
         Intent intent= new Intent(this,TrainingActivity.class);
         startActivityForResult(intent,1);
+    }
+    public void onClickFoodNew(View view)
+    {
+        Intent intent= new Intent(this,FoodActivity.class);
+        startActivityForResult(intent,2);
     }
 
     @Override
@@ -66,13 +78,47 @@ public class CalculatedActivity extends AppCompatActivity {
             System.out.println(data.getIntExtra("trainkcal",0));
             int number=data.getIntExtra("trainkcal",0);
 
-            summ=summ+number;
-            if(pb.getProgress()<=summ)
+            kcalday=kcalday+number;
+
+            if(kcalday>0)
             {
+                //#808080
+                tvKcal.setTextColor(Color.parseColor("#808080"));
+                tvFeedback.setBackgroundColor(Color.parseColor("#EAF8EA"));
+                tvKcalOverUnder.setText("kcal left");
                 tvFeedback.setText("You are doing great you are right on Track :D!");
             }
-            tvKcal.setText(summ+kcalday+ "");
-            pb.setMax(summ+kcalday);
+            tvKcal.setText(kcalday+"");
+            pb.setMax(kcalday);
         }
+        if(requestCode==2&&resultCode==3){
+
+            System.out.println("success");
+            //ntent.putExtra("returnStr","Test");
+            System.out.println(data.getIntExtra("foodkcal",0));
+            int number=data.getIntExtra("foodkcal",0);
+            int progress=pb.getProgress();
+            pb.setProgress(progress+number);
+            kcalday=kcalday-number;
+
+            if(kcalday<0)
+            {
+                tvKcal.setText(kcalday*-1+"");
+                tvKcal.setTextColor(Color.RED);
+                tvFeedback.setBackgroundColor(Color.parseColor("#FB7979"));
+                tvKcalOverUnder.setText("kcal over");
+                tvFeedback.setText("You are over your limit be more careful :(!");
+            }
+            else {
+
+
+                tvKcal.setText(kcalday + "");
+            }
+        }
+
+    }
+    @Override
+    public void onBackPressed () {
+
     }
 }

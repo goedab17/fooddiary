@@ -11,11 +11,9 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.test.R;
-import com.example.test.TrainingActivity;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 
 public class TrainingAdapter extends RecyclerView.Adapter<TrainingViewHolder>{
 
@@ -57,7 +55,7 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingViewHolder>{
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.training_item,parent,false);
         TextView tvName = view.findViewById(R.id.tvName);
-        TextView tvNumber = view.findViewById(R.id.tvKcalPer);
+        TextView tvNumber = view.findViewById(R.id.tvKcalCalc);
 
         return new TrainingViewHolder(view,tvName,tvNumber);
     }

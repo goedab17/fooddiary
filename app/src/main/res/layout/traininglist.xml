@@ -21,12 +21,12 @@
         />
 
     <SearchView
-        android:id="@+id/svFood"
+        android:id="@+id/svTraining"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFood"
+        android:id="@+id/rvTraining"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

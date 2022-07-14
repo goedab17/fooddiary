@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="#FFFFFF"
+    android:backgroundTint="#E6FAE7">
+
+    <TextView
+        android:id="@+id/tvFoodName"
+        android:layout_width="95dp"
+        android:layout_height="33dp"
+        android:text="Food" />
+
+    <TextView
+        android:id="@+id/tvKcalPerGramm"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_marginLeft="100dp"
+        android:layout_toRightOf="@id/tvFoodName"
+        android:text="150" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tvKcalPerGramm"
+        android:height="33dp"
+        android:paddingLeft="10dp"
+        android:text="kcal per 100g" />
+
+</RelativeLayout>

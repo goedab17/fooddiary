@@ -3,11 +3,14 @@ package com.example.test;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.test.bl.IOAccess;
 
 public class MainActivity extends AppCompatActivity {
     private Button btGoNext;
@@ -25,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent= new Intent(this,DataActivity.class);
         startActivity(intent);
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }

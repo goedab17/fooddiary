@@ -21,15 +21,15 @@ public class TrainingActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.traininglist);
         TrainingAdapter adapter = new TrainingAdapter();
-        RecyclerView rvList = findViewById(R.id.rvFood);
+        RecyclerView rvList = findViewById(R.id.rvTraining);
 
         rvList.setLayoutManager(new LinearLayoutManager(this));
         rvList.setAdapter(adapter);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper((new MyItemTouchHelper(adapter)));
-        itemTouchHelper.attachToRecyclerView(rvList);
+        /*ItemTouchHelper itemTouchHelper = new ItemTouchHelper((new MyItemTouchHelper(adapter)));
+        itemTouchHelper.attachToRecyclerView(rvList);*/
 
-        SearchView svSearch = findViewById(R.id.svFood);
+        SearchView svSearch = findViewById(R.id.svTraining);
         svSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

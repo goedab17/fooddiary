@@ -51,7 +51,10 @@ public class DataActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
     }
+    @Override
+    public void onBackPressed () {
 
+    }
     public void onSubmit(View view)
     {
         try {
@@ -83,5 +86,6 @@ public class DataActivity extends AppCompatActivity {
 
 
     }
+
 
 }
