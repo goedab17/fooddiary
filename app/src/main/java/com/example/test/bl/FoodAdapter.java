@@ -1,5 +1,6 @@
 package com.example.test.bl;
 
+import android.content.Context;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodViewHolder> {
     private List<Food> filtered = new LinkedList<>();
     private List<Food> foods = new LinkedList<>();
+
 
     public FoodAdapter() {
         foods.add(new Food("Ananas",59));
@@ -62,6 +64,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodViewHolder> {
         foods.add(new Food("Eisbergsalat",14));
         filtered= new LinkedList<>(foods);
     }
+
 
     @NonNull
     @Override

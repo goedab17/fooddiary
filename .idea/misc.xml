@@ -5,7 +5,10 @@
       <map>
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.125" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable/custom_progress.xml" value="0.198" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable/ic_home_background.xml" value="0.1" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable/ic_home_foreground.xml" value="0.1" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/drawable/ic_messages_foreground.xml" value="0.1" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/font/roboto_medium.xml" value="0.1" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/font/roboto_thin.xml" value="0.1" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/activity_food.xml" value="0.1" />
@@ -15,11 +18,14 @@
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/food_edit.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/food_item.xml" value="0.4" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/foodlist.xml" value="0.42916666666666664" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/fragment__home.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/fragment_first.xml" value="0.31476449275362317" />
-        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/homepage.xml" value="0.264" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/fragment_home.xml" value="0.23541666666666666" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/homepage.xml" value="0.2" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/training_edit.xml" value="0.2" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/training_item.xml" value="0.4" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/layout/traininglist.xml" value="0.27741935483870966" />
+        <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/menu/bottom_nav_menu.xml" value="0.23541666666666666" />
         <entry key="..\:/Users/danie/AndroidStudioProjects/Test/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1635" />
       </map>
     </option>

@@ -60,6 +60,7 @@ public class TrainingViewHolder extends RecyclerView.ViewHolder implements View.
         ((TrainingActivity)itemView.getContext()).finish();
         System.out.println("in here");
 
+
     }
 
 }

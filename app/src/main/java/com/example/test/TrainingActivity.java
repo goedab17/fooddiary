@@ -26,8 +26,8 @@ public class TrainingActivity extends AppCompatActivity {
         rvList.setLayoutManager(new LinearLayoutManager(this));
         rvList.setAdapter(adapter);
 
-        /*ItemTouchHelper itemTouchHelper = new ItemTouchHelper((new MyItemTouchHelper(adapter)));
-        itemTouchHelper.attachToRecyclerView(rvList);*/
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper((new MyItemTouchHelper(adapter)));
+        itemTouchHelper.attachToRecyclerView(rvList);
 
         SearchView svSearch = findViewById(R.id.svTraining);
         svSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
