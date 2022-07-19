@@ -1,6 +1,8 @@
 package com.example.test;
 
+
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -12,9 +14,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.filter.InputFilterMinMax;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 public class EditTrainingActivity extends AppCompatActivity {
     private TextView textLabel;
@@ -72,6 +78,7 @@ public class EditTrainingActivity extends AppCompatActivity {
 
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onClickTrainingEdit(View view)
     {
 

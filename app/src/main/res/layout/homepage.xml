@@ -6,26 +6,25 @@
     android:layout_height="match_parent">
 
 
-
     <TextView
         android:id="@+id/tvKcal"
         android:layout_width="81dp"
         android:layout_height="32dp"
         android:layout_marginTop="150dp"
-        android:layout_marginEnd="81dp"
+        android:layout_marginEnd="75dp"
         android:gravity="center"
         android:textSize="25dp"
         app:layout_constraintEnd_toStartOf="@id/textView4"
-        app:layout_constraintTop_toTopOf="@id/textView3" />
+        app:layout_constraintTop_toTopOf="@id/tvDate" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="23dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="96dp"
-        android:text="Your Daily Allowed intake is"
+        android:layout_marginEnd="80dp"
+        android:text="Current Date"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -131,21 +130,23 @@
         android:layout_height="245dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="81dp"
         android:indeterminate="false"
         android:indeterminateOnly="false"
         android:max="1890"
         android:progress="0"
         android:progressDrawable="@drawable/custom_progress"
         android:rotation="270"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
     <TextView
         android:id="@+id/tvKcalOverUnder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="180dp"
+        android:layout_marginEnd="175dp"
         android:text="kcal left"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvKcal" />
@@ -172,4 +173,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

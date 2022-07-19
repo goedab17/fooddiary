@@ -3,6 +3,7 @@ package com.example.test;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -11,8 +12,17 @@ import android.widget.TextView;
 
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarMenu;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class CalculatedActivity extends AppCompatActivity {
 
     private TextView tvKcal;
@@ -21,7 +31,9 @@ public class CalculatedActivity extends AppCompatActivity {
     private int kcalday = 0;
     private int summ=0;
     private TextView tvKcalOverUnder;
-
+    private BottomNavigationView navMenu;
+    private TextView tvLabel;
+    private DateTimeFormatter dtf=DateTimeFormatter.ofPattern("");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +44,15 @@ public class CalculatedActivity extends AppCompatActivity {
         pb = findViewById(R.id.progressBar);
         tvFeedback = findViewById(R.id.tvFeedback);
         tvKcalOverUnder = findViewById(R.id.tvKcalOverUnder);
+        navMenu = findViewById(R.id.navBar);
+        tvLabel = findViewById(R.id.tvDate);
         tvFeedback.setBackgroundColor(Color.parseColor("#EAF8EA"));
+        String date = LocalDate.now().toString();
+        String line[] = date.split("-");
+        String year=line[0];
+        String month=line[1];
+        int day = Integer.parseInt(line[2]);
+        tvLabel.setText(day+"."+month+"."+year);
 
         Intent intent = getIntent();
         int age = intent.getIntExtra("age", 0);
@@ -52,6 +72,30 @@ public class CalculatedActivity extends AppCompatActivity {
         }
         tvKcal.setText(kcalday + "");
         pb.setMax(kcalday);
+
+        navMenu.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.miHome:
+                    Intent intent1 = new Intent(this, StatisticsActivity.class);
+                    int number=day+1;
+                    intent1.putExtra("date",number+"."+month+"."+year);
+                    startActivityForResult(intent1,3);
+
+                    break;
+                case R.id.miGraph:
+                    Intent intent2 = new Intent(this, StatisticsActivity.class);
+                    intent2.putExtra("date",tvLabel.getText()+"");
+                    startActivityForResult(intent2,3);
+                    break;
+                case R.id.miCalender:
+
+                    Intent intent3 = new Intent(this, CalendarActivity.class);
+                    startActivityForResult(intent3,4);
+                    break;
+            }
+
+            return true;
+        });
     }
 
 
@@ -114,6 +158,16 @@ public class CalculatedActivity extends AppCompatActivity {
 
                 tvKcal.setText(kcalday + "");
             }
+        }
+
+        if(requestCode==3&&resultCode==4){
+            System.out.println("in statistics");
+            navMenu.getMenu().getItem(0).setChecked(true);
+        }
+
+        if(requestCode==4&&resultCode==5){
+            System.out.println("in calendar");
+            navMenu.getMenu().getItem(  0).setChecked(true);
         }
 
     }

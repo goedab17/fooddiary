@@ -1,6 +1,7 @@
 package com.example.test;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.filter.InputFilterMinMax;
@@ -55,6 +57,7 @@ public class DataActivity extends AppCompatActivity {
     public void onBackPressed () {
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View view)
     {
         try {
