@@ -30,6 +30,8 @@ public class CalculatedActivity extends AppCompatActivity {
     private TextView tvFeedback;
     private ProgressBar pb;
     private int kcalday = 0;
+    private int kcaldayor = 0;
+
     private int summ=0;
     private TextView tvKcalOverUnder;
     private BottomNavigationView navMenu;
@@ -77,10 +79,12 @@ public class CalculatedActivity extends AppCompatActivity {
         String gender = intent.getStringExtra("selected");
         if (gender.equals("male")) {
             //Männer: GU (kcal/Tag) = 66 + (13,8 x Gewicht in kg) + (5,0 x Größe in cm) – (6,8 x Alter in Jahren)
+            kcaldayor=(int) (66 + (13.8 * currentweight) + (5 * height) - (6.8 * age));
             kcalday = (int) (66 + (13.8 * currentweight) + (5 * height) - (6.8 * age));
 
         } else if (gender.equals("female")) {
             //   Frauen: GU (kcal/Tag) = 655 + (9,5 x Gewicht in kg) + (1,9 x Größe in cm) – (4,7 x Alter in Jahren)
+            kcaldayor=(int) (655 + (9.5 * currentweight) + (1.9 * height) - (4.7 * age));
             kcalday = (int) (655 + (9.5 * currentweight) + (1.9 * height) - (4.7 * age));
 
         }
@@ -205,6 +209,28 @@ public class CalculatedActivity extends AppCompatActivity {
         if(requestCode==4&&resultCode==5){
             System.out.println("in calendar");
             navMenu.getMenu().getItem(  0).setChecked(true);
+            if(data==null){
+
+            }
+            else {
+                String clickedDate = data.getStringExtra("date");
+                System.out.println("In calender date: " + clickedDate);
+                if (!tvLabel.getText().equals(clickedDate)) {
+                    System.out.println();
+                    pb.setMax(kcaldayor);
+                    pb.setProgress(0);
+                    tvKcal.setText(kcaldayor+"");
+                    tvMahlzeiten.setText("");
+                    tvTrainings.setText("");
+                    tvFeedback.setBackgroundColor(Color.parseColor("#EAF8EA"));
+                    tvKcalOverUnder.setText("kcal left");
+                    tvKcal.setTextColor(Color.parseColor("#808080"));
+                    tvFeedback.setText("You are doing great you are right on Track :D!");
+                }
+                tvLabel.setText(clickedDate + "");
+            }
+
+
         }
 
     }
