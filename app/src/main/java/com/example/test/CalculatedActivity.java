@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,11 +34,20 @@ public class CalculatedActivity extends AppCompatActivity {
     private TextView tvKcalOverUnder;
     private BottomNavigationView navMenu;
     private TextView tvLabel;
+    private TextView tvMahlzeiten;
+    private TextView tvTrainings;
+
     private DateTimeFormatter dtf=DateTimeFormatter.ofPattern("");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if(savedInstanceState != null){
+            System.out.println("hello");
+            String myString=savedInstanceState.getString("my_string");
+            System.out.println(myString);
 
+        }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.homepage);
         tvKcal = findViewById(R.id.tvKcal);
@@ -46,6 +56,10 @@ public class CalculatedActivity extends AppCompatActivity {
         tvKcalOverUnder = findViewById(R.id.tvKcalOverUnder);
         navMenu = findViewById(R.id.navBar);
         tvLabel = findViewById(R.id.tvDate);
+        tvMahlzeiten = findViewById(R.id.tvMahlzeiten);
+
+        tvTrainings = findViewById(R.id.tvTrainings);
+
         tvFeedback.setBackgroundColor(Color.parseColor("#EAF8EA"));
         String date = LocalDate.now().toString();
         String line[] = date.split("-");
@@ -75,16 +89,14 @@ public class CalculatedActivity extends AppCompatActivity {
 
         navMenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.miHome:
-                    Intent intent1 = new Intent(this, StatisticsActivity.class);
-                    int number=day+1;
-                    intent1.putExtra("date",number+"."+month+"."+year);
-                    startActivityForResult(intent1,3);
 
-                    break;
+
+
                 case R.id.miGraph:
                     Intent intent2 = new Intent(this, StatisticsActivity.class);
                     intent2.putExtra("date",tvLabel.getText()+"");
+                    intent2.putExtra("startweight",currentweight);
+                    intent2.putExtra("goalweight",goalweight);
                     startActivityForResult(intent2,3);
                     break;
                 case R.id.miCalender:
@@ -96,6 +108,7 @@ public class CalculatedActivity extends AppCompatActivity {
 
             return true;
         });
+        navMenu.getMenu().getItem(0).setChecked(true);
     }
 
 
@@ -109,7 +122,13 @@ public class CalculatedActivity extends AppCompatActivity {
         Intent intent= new Intent(this,FoodActivity.class);
         startActivityForResult(intent,2);
     }
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        savedInstanceState.putString("my_string","Welcome back");
 
+        super.onSaveInstanceState(savedInstanceState);
+
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -121,7 +140,15 @@ public class CalculatedActivity extends AppCompatActivity {
             //ntent.putExtra("returnStr","Test");
             System.out.println(data.getIntExtra("trainkcal",0));
             int number=data.getIntExtra("trainkcal",0);
-
+            String name=data.getStringExtra("name");
+            String text=tvTrainings.getText().toString();
+            if(text=="")
+            {
+                tvTrainings.setText(name);
+            }
+            else{
+                tvTrainings.setText(text+", "+name);
+            }
             kcalday=kcalday+number;
 
             if(kcalday>0)
@@ -140,6 +167,16 @@ public class CalculatedActivity extends AppCompatActivity {
             System.out.println("success");
             //ntent.putExtra("returnStr","Test");
             System.out.println(data.getIntExtra("foodkcal",0));
+            String name=data.getStringExtra("name");
+            String text=tvMahlzeiten.getText().toString();
+            if(text=="")
+            {
+                tvMahlzeiten.setText(name);
+            }
+            else{
+                tvMahlzeiten.setText(text+", "+name);
+            }
+
             int number=data.getIntExtra("foodkcal",0);
             int progress=pb.getProgress();
             pb.setProgress(progress+number);
@@ -175,4 +212,5 @@ public class CalculatedActivity extends AppCompatActivity {
     public void onBackPressed () {
 
     }
+
 }

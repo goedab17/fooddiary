@@ -28,7 +28,7 @@ public class EditTrainingActivity extends AppCompatActivity {
     private TextView calculatedKcal;
     private TextView tvKcal;
     private ProgressBar pb;
-
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +43,7 @@ public class EditTrainingActivity extends AppCompatActivity {
 
 
         Intent intent = getIntent();
-        String name=intent.getStringExtra("name");
+         name=intent.getStringExtra("name");
         Double number = intent.getDoubleExtra("rate",0);
         int minutes=Integer.parseInt(etMinutes.getText()+"");
         textLabel.setText(name);
@@ -83,7 +83,7 @@ public class EditTrainingActivity extends AppCompatActivity {
     {
 
         Intent intent= new Intent(this,CalculatedActivity.class);
-
+        intent.putExtra("name",name);
         intent.putExtra("trainkcal",(int)Double.parseDouble(calculatedKcal.getText().toString()));
         setResult(2,intent);
         finish();

@@ -68,10 +68,9 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv3"
+                android:id="@+id/tvMahlzeiten"
                 android:layout_width="336dp"
                 android:layout_height="30dp"
-                android:text="Mahlzeit 1, Mahlzeit2"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -115,10 +114,9 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tv4"
+                android:id="@+id/tvTrainings"
                 android:layout_width="336dp"
                 android:layout_height="30dp"
-                android:text="Training1, Training2"
                 android:textSize="16sp" />
         </TableRow>
 

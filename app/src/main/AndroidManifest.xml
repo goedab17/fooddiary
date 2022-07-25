@@ -18,7 +18,10 @@
             android:exported="false" />
         <activity
             android:name=".StatisticsActivity"
-            android:exported="false" />
+            android:launchMode="singleTop"
+            android:parentActivityName=".CalculatedActivity"
+            >
+             </activity>
         <activity
             android:name=".FoodActivity"
             android:exported="false" />
@@ -32,13 +35,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".DataActivity" />
-        <activity android:name=".CalculatedActivity" />
+        <activity android:name=".CalculatedActivity"
+            android:launchMode="singleTop"
+            />
         <activity android:name=".TrainingActivity" />
         <activity android:name=".EditTrainingActivity" />
         <activity android:name=".EditFoodActivity" />
 
         <meta-data
-            android:name="preloaded_fonts"
+            android:name="preloaded_%fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
 

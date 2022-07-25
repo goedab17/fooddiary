@@ -1,6 +1,7 @@
 package com.example.test;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.test.filter.InputFilterMinMax;
@@ -18,6 +20,7 @@ public class EditFoodActivity extends AppCompatActivity {
     private TextView etGramm;
     private TextView calculatedFoodKcal;
     private int rate;
+    private String name;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,7 @@ public class EditFoodActivity extends AppCompatActivity {
         etGramm.setFilters(new InputFilter[]{new InputFilterMinMax("1","50000")});
 
         Intent intent= getIntent();
-        String name = intent.getStringExtra("foodname");
+        name = intent.getStringExtra("foodname");
         double rate=(double) (intent.getIntExtra("calories",0))/100;
         textFoodLabel.setText(name);
         calculatedFoodKcal.setText((intent.getIntExtra("calories",0))+"");
@@ -63,15 +66,17 @@ public class EditFoodActivity extends AppCompatActivity {
 
 
     }
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onClickFoodEdit(View view)
     {
 
         Intent intent= new Intent(this,CalculatedActivity.class);
-
+        intent.putExtra("name",name);
         intent.putExtra("foodkcal",(int)Double.parseDouble(calculatedFoodKcal.getText().toString()));
         setResult(3,intent);
         finish();
 
 
     }
+
 }
