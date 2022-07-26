@@ -9,7 +9,10 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,9 +31,13 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import nl.dionsegijn.konfetti.KonfettiView;
+import nl.dionsegijn.konfetti.models.Shape;
+import nl.dionsegijn.konfetti.models.Size;
+
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class StatisticsActivity extends AppCompatActivity {
-        
+
     private BottomNavigationView navMenu;
     private GraphView graphView;
     private TextView tvGoalweight;
@@ -39,6 +46,7 @@ public class StatisticsActivity extends AppCompatActivity {
     private TextView tvGoalFeedback;
     private Button btUpdate;
     private  TextView tvStartweight;
+    private KonfettiView konfettiView;
 
     LineGraphSeries<DataPoint> series;
     private List<String> dateList=new LinkedList<>();
@@ -49,12 +57,18 @@ public class StatisticsActivity extends AppCompatActivity {
     private int startweight;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
         //get Data from Activity
         Intent intent = getIntent();
+
         startweight =intent.getIntExtra("startweight",0);
+
+        konfettiView=findViewById(R.id.viewKonfetti);
         navMenu=findViewById(R.id.navBarStat);
         graphView=findViewById(R.id.idGraphView);
         tvGoalweight=findViewById(R.id.tvGoalweight);
@@ -192,6 +206,19 @@ public class StatisticsActivity extends AppCompatActivity {
                     else if(result<0||result==0){
 
                         tvGoalFeedback.setText("You are have reached your goal, and have lost: "+lostweight+" kg amazing job");
+                        DisplayMetrics display= new DisplayMetrics();
+                        getWindowManager().getDefaultDisplay().getMetrics(display);
+                        konfettiView.build()
+                                .addColors(Color.YELLOW, Color.GREEN, Color.MAGENTA)
+                                .setDirection(0.0, 359.0)
+                                .setSpeed(1f, 5f)
+                                .setFadeOutEnabled(true)
+                                .setTimeToLive(2000L)
+                                .addShapes(Shape.Square.INSTANCE, Shape.Circle.INSTANCE)
+                                .addSizes(new Size(12, 5f))
+                                .setPosition(-50f, display.widthPixels + 50f, -50f, -50f)
+
+                                .streamFor(300, 5000L);
                     }
                     else{
                         tvGoalFeedback.setText("You are closer to your goal and have lost"+lostweight+"kg keep going like that!");

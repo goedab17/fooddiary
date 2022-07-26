@@ -33,7 +33,7 @@
     <TableLayout
         android:id="@+id/tb3"
         android:layout_width="361dp"
-        android:layout_height="85dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="10dp"
         android:background="#4C2929"
@@ -51,7 +51,7 @@
                 android:layout_height="40dp"
                 android:layout_weight="2"
                 android:text="Food"
-                android:textSize="24dp" />
+                android:textSize="28dp" />
 
             <Button
                 android:id="@+id/bt3"
@@ -70,7 +70,7 @@
             <TextView
                 android:id="@+id/tvMahlzeiten"
                 android:layout_width="336dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:textSize="16sp" />
         </TableRow>
 
@@ -79,7 +79,7 @@
     <TableLayout
         android:id="@+id/tb4"
         android:layout_width="361dp"
-        android:layout_height="85dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="15dp"
         android:background="#4C2929"
@@ -97,7 +97,7 @@
                 android:layout_height="60dp"
                 android:layout_weight="2"
                 android:text="Training"
-                android:textSize="24dp" />
+                android:textSize="28sp" />
 
             <Button
                 android:id="@+id/bt4"
@@ -116,7 +116,7 @@
             <TextView
                 android:id="@+id/tvTrainings"
                 android:layout_width="336dp"
-                android:layout_height="30dp"
+                android:layout_height="40dp"
                 android:textSize="16sp" />
         </TableRow>
 

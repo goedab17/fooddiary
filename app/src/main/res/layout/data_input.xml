@@ -6,98 +6,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:foregroundGravity="center">
+    android:background="#38c172"
+    android:foregroundGravity="center"
+    android:foregroundTint="#38c172">
 
     <TextView
         android:id="@+id/tvGewichtWunsch2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="74dp"
         android:gravity="center"
         android:text="your gender"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvGewichtWunsch" />
+        app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
 
     <TextView
         android:id="@+id/tvGewichtWunsch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
         android:gravity="center"
         android:text="Zielgewicht"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCurrentWeight" />
-
-    <EditText
-        android:id="@+id/Input_Zielgewicht"
-        android:layout_width="201dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="41dp"
-        android:gravity="center"
-        android:inputType="numberDecimal"
-        android:paddingLeft="10px"
-        android:text="70"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Input_CurrentWeight"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/input_height"
-        android:layout_width="201dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="44dp"
-        android:gravity="center"
-        android:inputType="number"
-        android:paddingLeft="10px"
-        android:text="173"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Input_CurrentWeight"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/Input_Age"
-        android:layout_width="201dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="130dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="15dp"
-        android:gravity="center"
-        android:inputType="number"
-        android:paddingLeft="10px"
-        android:text="18"
-        app:layout_constraintBottom_toTopOf="@+id/Input_CurrentWeight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <EditText
-        android:id="@+id/Input_CurrentWeight"
-        android:layout_width="201dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="41dp"
-        android:gravity="center"
-        android:inputType="none|number|numberDecimal"
-        android:paddingLeft="10px"
-        android:text="73"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Input_Age"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/tvAge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="77dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="77dp"
         android:gravity="center"
-        android:text="Age"
+        android:text="Alter"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/button_first"
@@ -105,6 +55,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="43dp"
         android:layout_marginBottom="60dp"
+        android:gravity="center"
         android:onClick="onSubmit"
         android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -116,11 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
         android:layout_marginTop="47dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="46dp"
-        android:text="Aktuelles Gewicht"
-        app:layout_constraintBottom_toTopOf="@+id/tvGewichtWunsch"
-        app:layout_constraintEnd_toStartOf="@+id/Input_CurrentWeight"
+        android:text="Akt. Gewicht"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAge" />
 
@@ -128,10 +77,81 @@
         android:id="@+id/spinner"
         android:layout_width="199dp"
         android:layout_height="48dp"
-        android:layout_marginTop="104dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginTop="51dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#808080"
         android:dropDownWidth="wrap_content"
+        android:foregroundTint="#38c172"
         android:gravity="center|right"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_height"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/Input_Age"
+        android:layout_width="201dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#808080"
+        android:gravity="center"
+        android:inputType="number"
+        android:paddingLeft="10px"
+        android:text="18"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/Input_CurrentWeight"
+        android:layout_width="201dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#808080"
+        android:gravity="center"
+        android:inputType="none|number|numberDecimal"
+        android:paddingLeft="10px"
+        android:text="73"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Input_Age"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/Input_Zielgewicht"
+        android:layout_width="201dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#808080"
+        android:gravity="center"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10px"
+        android:text="70"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Input_CurrentWeight"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/input_height"
+        android:layout_width="201dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="28dp"
+        android:backgroundTint="#808080"
+        android:gravity="center"
+        android:inputType="number"
+        android:paddingLeft="10px"
+        android:text="173"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Input_Zielgewicht"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -140,9 +160,24 @@
         android:id="@+id/tvHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="66dp"
         android:text="Height / cm"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvGewichtWunsch" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="62dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="62dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/aboutyou" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -31,6 +32,8 @@ public class DataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.data_input);
         etAge=findViewById(R.id.Input_Age);
         wishWeight=findViewById(R.id.Input_Zielgewicht);
@@ -47,9 +50,9 @@ public class DataActivity extends AppCompatActivity {
         spinnerArray.add("female");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, spinnerArray);
+                this, R.layout.spinner_item, spinnerArray);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.spinner_item);
         spinner.setAdapter(adapter);
 
     }

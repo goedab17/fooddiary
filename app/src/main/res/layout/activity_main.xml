@@ -4,31 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#38c172"
     android:theme="@android:style/Theme.NoTitleBar"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btNext"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="43dp"
-        android:layout_marginBottom="60dp"
-        android:onClick="onClickNext"
-        android:text="Next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <ImageView
+        android:id="@+id/ivTitle"
+        android:layout_width="361dp"
+        android:layout_height="98dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/title_image" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Welcome to the Food Diary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:theme="@android:style/Theme.NoTitleBar"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="383dp"
+        android:layout_height="434dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivTitle"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/food" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

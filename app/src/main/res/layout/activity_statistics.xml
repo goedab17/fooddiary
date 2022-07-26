@@ -8,10 +8,12 @@
     tools:context=".StatisticsActivity">
 
 
+    X
+
     <com.jjoe64.graphview.GraphView
         android:id="@+id/idGraphView"
         android:layout_width="match_parent"
-        android:layout_height="510dp"
+        android:layout_height="485dp"
         android:paddingLeft="100dp" />
 
     <LinearLayout
@@ -114,5 +116,12 @@
         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     </LinearLayout>
+
+    <nl.dionsegijn.konfetti.KonfettiView
+        android:id="@+id/viewKonfetti"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:visibility="invisible" />
 
 </LinearLayout>

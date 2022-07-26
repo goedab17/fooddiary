@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -44,13 +45,16 @@ public class CalculatedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         if(savedInstanceState != null){
             System.out.println("hello");
             String myString=savedInstanceState.getString("my_string");
             System.out.println(myString);
 
         }
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         setContentView(R.layout.homepage);
         tvKcal = findViewById(R.id.tvKcal);
         pb = findViewById(R.id.progressBar);
@@ -216,6 +220,8 @@ public class CalculatedActivity extends AppCompatActivity {
                 String clickedDate = data.getStringExtra("date");
                 System.out.println("In calender date: " + clickedDate);
                 if (!tvLabel.getText().equals(clickedDate)) {
+                    kcalday=kcaldayor;
+
                     System.out.println();
                     pb.setMax(kcaldayor);
                     pb.setProgress(0);
